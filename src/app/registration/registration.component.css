@@ -1,0 +1,45 @@
+.window {
+  float: top;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  height: 600px;
+  margin-top: -300px;
+
+  width: 360px;
+  margin-left: -160px;
+
+  border: 3px solid gray;
+  border-radius: 15px;
+
+  text-align: center;
+  background-color: #ffe0b2;
+}
+
+.regist-form {
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: left;
+  font-size: 16px;
+
+  padding-bottom: 10px;
+  border-bottom-color: gray;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+.regist-form p {
+  margin-top: 5px;
+}
+
+.regist-form input {
+  width: 100%;
+}
+
+.regist-form button {
+  width: 100%;
+  padding-top: 2px;
+  height: 30px;
+}

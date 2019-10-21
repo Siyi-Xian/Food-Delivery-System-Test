@@ -1,0 +1,26 @@
+db.post.insert([
+    {
+        title: '1',
+        description: 'MongoDB'
+    }
+    {
+        title: '2',
+        description: 'MongoDB2'
+    }
+    {
+      title: 'NoSQL Database', 
+      description: "NoSQL database doesn't have tables",
+      by: 'tutorials point',
+      url: 'http://www.tutorialspoint.com',
+      tags: ['mongodb', 'database', 'NoSQL'],
+      likes: 20, 
+      comments: [	
+         {
+            user:'user1',
+            message: 'My first comment',
+            dateCreated: new Date(2013,11,10,2,35),
+            like: 0 
+         }
+      ]
+   }
+])

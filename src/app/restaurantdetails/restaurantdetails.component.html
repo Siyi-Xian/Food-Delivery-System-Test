@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <title>
+    Restaurant Details
+  </title>
+  <!-- Bootstrap CDN scripts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="restaurantdetails.component.css"></script>
+  <script src="../../styles.css"></script>
+</head>
+<body>
+
+
+<app-sidebar>
+</app-sidebar>
+
+<div style="margin-left: 200px">
+  <div class="container" style="width: 400px; margin-top: 5%; margin-bottom: 5%">
+    <div class="jumbotron" style="padding: 0; background-color: #FFF8E1">
+      <div class="container" style="text-align: center; padding: 20px; border-bottom: #FFE082 2px solid">
+        <h2>Edit Details</h2>
+      </div>
+      <div class="container" style="padding: 30px; font-size: 15px">
+        <form mehtod="post" [formGroup]="detailsForm" (ngSubmit)=onSubmit(detailsForm.value)>
+          <div class="fields">
+            <div>Restaurant Name:</div>
+            <div><input type="text" required="required" formControlName="name" placeholder="{{ detailsForm.name }}"
+                        id="name" style="width: 100%"></div>
+          </div>
+          <div class="fields">
+            <div>Restaurant Location:</div>
+            <div><input type="text" required="required" formControlName="location"
+                        placeholder="{{ detailsForm.location }}" id="location" style="width: 100%"></div>
+          </div>
+          <div class="fields">
+            <div>Category:</div>
+            <div><input type="text" required="required" formControlName="food_category"
+                        placeholder="{{ detailsForm.food_category }}" id="food_category" style="width: 100%"></div>
+          </div>
+          <div class="fields">
+            <div>Image:</div>
+            <div><input type="file" required="required" accept="image/*" (change)="onFileSelected($event)" id="res_image" ng-model="res_image"
+                        base-sixty-four-input></div>
+          </div>
+          <div class="fields">
+            <div>Contact Phone Number:</div>
+            <div><input type="text" required="required" formControlName="contact" placeholder="{{ detailsForm.contact }}"
+                        id="contact">
+            </div>
+          </div>
+          <div class="fields">
+            <div>Working Hours:</div>
+            <div><input type="text" required="required" formControlName="working_hours"
+                        placeholder="{{ detailsForm.working_hours }}"
+                        id="working_hours"></div>
+          </div>
+          <button type="submit" value="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 20px">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<html>
+
+<head>
+  <title>
+    Restaurant Details
+  </title>
+  <!-- Bootstrap CDN scripts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="login.component.css"></script>
+  <script src="../../styles.css"></script>
+</head>
+<body>
+
+<app-sidebar></app-sidebar>
+
+<div style="margin-left: 200px">
+  <div class="container" style="width: 400px; margin-top: 5%; margin-bottom: 5%">
+    <div class="jumbotron" style="padding: 0; background-color: #FFF8E1">
+      <div class="container" style="text-align: center; padding: 20px; border-bottom: #FFE082 2px solid">
+        <h2>Add item to the Menu</h2>
+      </div>
+      <div class="container" style="padding: 30px; font-size: 15px">
+        <form mehtod="post" [formGroup]="menuForm" (ngSubmit)=onSubmit(menuForm.value)>
+        <div class="fields">
+          <div>Item Name:</div>
+          <div><input type="text" required="required" formControlName="name" placeholder="Cheeseburger" id="name"
+                      style="width: 100%"></div>
+        </div>
+        <div class="fields">
+          <div>Cost:</div>
+          <div><input type="text" required="required" formControlName="cost" placeholder="$2.00" id="cost"
+                      style="width: 100%">
+          </div>
+        </div>
+        <div class="fields">
+          <div>Description:</div>
+          <div><input type="text" required="required" formControlName="description" placeholder="A delecious Meal"
+                      id="description" style="width: 100%"></div>
+        </div>
+        <div class="fields">
+          <div>Image:</div>
+          <div><input type="file" required="required" accept="image/*" (change)="onFileSelected($event)" id="food_image" ng-model="res_image"
+            base-sixty-four-input>></div>
+        </div>
+        <button type="submit" value="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 20px">
+          Add Item
+        </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+
+</html>
