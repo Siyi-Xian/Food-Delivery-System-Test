@@ -1,7 +1,7 @@
 {
   "name": "fooddeliverysystem",
   "version": "0.0.0",
-  
+
   "scripts": {
     "start": "http-server",
     "lint": "tslint \"src/**/*.ts\"",
@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~8.2.8",
     "@angular/platform-browser-dynamic": "~8.2.8",
     "@angular/router": "~8.2.8",
+    "@angular/cli": "^8.3.12",
     "angular-base64": "^2.0.5",
     "angular-base64-upload": "^0.1.23",
     "bcryptjs": "^2.4.3",
