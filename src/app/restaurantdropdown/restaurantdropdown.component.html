@@ -1,0 +1,50 @@
+<nav class="navbar navbar-light" style="padding-right: 30px">
+  <!-- Navbar content -->
+  <!-- Just an image -->
+  <a class="navbar-brand" routerLink="/public" style="padding: 0;">
+    <img src="../../assets/img/logo.png" height="50" alt="">
+  </a>
+  <ul class="nav navbar-nav navbar-right" style="width: 80%">
+    <li class="dropdown" style="width: 22.5%; text-align: center">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span class="glyphicon glyphicon-glass"></span>
+        Orders
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu" style="width: 100%">
+        <li><a href="#" routerLink="/restaurantcurrentorders">Current Orders</a></li>
+        <li><a href="#" routerLink="/orderhistory">Order History</a></li>
+      </ul>
+    </li>
+    <li class="dropdown" style="width: 22.5%; text-align: center">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+        Menu
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu" style="width: 100%">
+        <li><a href="#" routerLink="/restaurantviewmenu">View Menu</a></li>
+        <li><a href="#" routerLink="/restaurantmenu">Add items to menu</a></li>
+      </ul>
+    </li>
+    <li class="dropdown" style="width: 22.5%; text-align: center">
+      <a href="#" routerLink="/restaurantviewdetails">
+        <span class="glyphicon glyphicon-user"></span>
+        Restaurant Details
+      </a>
+    </li>
+    <li style="width: 22.5%; text-align: center">
+      <a href="#" routerLink="/restaurantstats">
+        <span class="glyphicon glyphicon-object-align-bottom"></span>
+        Statistics
+      </a>
+    </li>
+    <li style="width: 10%; text-align: center">
+      <a href="#" routerLink="/resturantlogin">
+        <span class="glyphicon glyphicon-log-out"></span>
+        Logout
+      </a>
+    </li>
+
+  </ul>
+</nav>

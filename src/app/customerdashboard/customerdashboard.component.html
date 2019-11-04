@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>
+    customer dashboard
+  </title>
+  <!-- Bootstrap CDN scripts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="login.component.css"></script>
+  <script src="../../styles.css"></script>
+</head>
+<body>
+<nav class="navbar navbar-light">
+  <!-- Navbar content -->
+  <!-- Just an image -->
+  <a class="navbar-brand" routerLink="/public" style="padding: 0;">
+    <img src="../../assets/img/logo.png" height="50" alt="">
+  </a>
+  <ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
+  <li><a routerLink="/shoppingcart" class="glyphicon glyphicon-shopping-cart"> Cart</a></li>
+  <div class="container">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Account <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a class="btn" href="#" routerLink="/shoppingcart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
+          <li><a class="btn" href="#" routerLink="/customerprofile">Profile</a></li>
+          <li><a class="btn" href="#" routerLink="/public"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+        </ul>
+      </div>
+  </div>
+  </ul>
+</nav>
+
+
+<h3>Welcome back</h3>
+<p>Search for restaurants below</p>
+    <!-- Search bar -->
+    <div class="search-container">  
+      <form action="get" [formGroup]="userSearchForm" (ngSubmit) = "onSubmit(userSearchForm.value)">
+        <input type="text" placeholder="Restaurant Name" formControlName="restaurant_name">
+        <input type="text" placeholder="Location" formControlName="location">
+        <input type="text" placeholder="Category" formControlName="food_category">
+        <div class="container">
+          <div class="dropdown">
+              <button class="btn dropdown-toggle" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-list"></span></button>
+              <ul class="dropdown-menu">
+                <label>Sort by</label>
+                <li><a class="dropdown-item" (click)="updateToLocation()">Location</a></li>
+                <li><a class="dropdown-item" (click)="updateToResName()">Restaurant Name</a></li>
+                <li><a class="dropdown-item" (click)="updateToFoodCat()">Restaurant Category</a></li>
+              </ul>
+          </div>
+        </div>
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+
+    <!-- placeholder for results from search query -->
+    <div #result>
+      <div *ngIf = "results">
+        <ul *ngFor="let result of results">
+          <div>
+            Name: {{result.name}}
+            Food Category: {{result.food_category}}
+            Location: {{result.location}}
+            working_hours: {{result.working_hours}}
+            <img [src]="'/restaurant_images/'+result.res_image" alt=""> 
+          </div>
+        </ul>
+      </div>
+    </div>
+    
+
+    
+
+</body>
+</html>

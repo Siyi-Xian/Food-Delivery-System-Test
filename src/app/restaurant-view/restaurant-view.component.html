@@ -23,14 +23,32 @@
               <img src="../../assets/img/logo.png" height="50" alt="">
             </a>
             <ul class="nav navbar-nav navbar-right" style="padding-right: 20px;"> 
-                <li><a routerLink="/resturantlogin"><span class="glyphicon glyphicon-log-out"></span> Log out </a></li>
+                <div class="container">
+                  <div class="dropdown">
+                      <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Account <span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <label>Orders</label>
+                        <li><a href="#" routerLink="/restaurantcurrentorders">Current Orders</a></li>
+                        <li><a href="#" routerLink="/orderhistory">Order History</a></li>
+                        <div class="dropdown-divider"></div>
+                        <label>Restaurant Details</label>
+                        <li><a href="#" routerLink="/resturantdetails">Add Details</a></li>
+                        <li><a href="#" routerLink="/restaurantviewdetails">View Details</a></li>
+                        <div class="dropdown-divider"></div>
+                        <label>Restaurant Menu</label>
+                        <li><a href="#" routerLink="/restaurantmenu">Add items to menu</a></li>
+                        <li><a href="#" routerLink="/restaurantviewmenu">View Menu</a></li>
+                        <div class="dropdown-divider"></div>
+                        <label>Restaurent Statistics</label>
+                        <li><a href="#" routerLink="/restaurantstats">Statistics</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a href="#" routerLink="/resturantlogin">Log out</a></li>
+                      </ul>
+                    </div>
+                </div>
             </ul>
           </nav>
 
-          <app-sidebar>
-
-
-          </app-sidebar>
     </body>
 
 </html>

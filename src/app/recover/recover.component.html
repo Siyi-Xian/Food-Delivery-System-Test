@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>
+      Recover Account
+    </title>
+    <!-- Bootstrap CDN scripts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="login.component.css"></script>
+    <script src="../../styles.css"></script>
+  </head>
+  <body class="login-background">
+
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand" routerLink="/public" style="padding: 0;">
+          <img src="../../assets/img/logo.png" height="50" alt="">
+        </a>
+    </nav>
+
+    <div>Recover your account</div>
+
+    <br>
+
+    <div>To recover your account please complete the form below</div>
+
+    <form method="POST" [formGroup]="userRecoverForm" (ngSubmit)="onSubmit(userRecoverForm.value)">
+        <div>Full Name:</div>
+        <div><input type="text" required="required" formControlName="name" placeholder="First Last" id="FullName" style="width: 100%"></div>
+        <div>Email Address:</div>
+        <div><input type="text" required = "required" formControlName="email" placeholder="johndoe@foodoholic.com" id="Email" style="width: 100%"></div>
+        <div><button type="submit"value = "submit" class="btn btn-primary btn-lg btn-block" (click)="onClickOpenVerification()">Verify</button></div>
+    </form>
+
+    <div *ngIf="showFile">
+        <form method="post" [formGroup]="userVerifyForm" (ngSubmit) = "onVerify(userVerifyForm.value)">
+          <div>Please enter the 6-digit code that was sent to your email</div>
+          <input type="text" class="form-control" placeholder="6-digit code" formControlName="otp">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" (click)="veryOTPAsyn(userVerifyForm.controls.otp)" type="button">Verify</button>
+          </span>
+        </form>
+        <div class="form-text error" *ngIf="userVerifyForm.touched">
+          <div *ngIf="userLoginForm.controls.otp.hasError('required')">Verifcation is required</div>
+          <div *ngIf="userLoginForm.controls.otp.hasError('invalidOtp')">Code is invalid</div>
+        </div>
+      </div>
+
+      <div *ngIf="showPasswordReset">
+        <form method="post" [formGroup]="userPasswordReset" (ngSubmit) = "onReset(userPasswordReset.value)">
+          <div>Enter your new password</div>
+          <input type="text" class="form-control" placeholder="******" formControlName="newPass">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="submit" value="submit">Submit</button>
+          </span>
+        </form>
+      </div>
+
+  </body>
+</html>

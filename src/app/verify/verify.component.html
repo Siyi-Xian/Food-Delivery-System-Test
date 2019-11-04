@@ -1,0 +1,36 @@
+
+<!-- Bootstrap CDN scripts -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="login.component.css"></script>
+<script src="../../styles.css"></script>
+
+<div class="container-fluid">
+         
+    <!-- <div>Enter your OTP </div>
+    <div><input type = "text" formControlName="{{input}}" class="form-control" required = "required"   style="width: 100%"></div>
+           -->
+           <label for="e-mail">Verify OTP</label>
+           <br>
+           please enter the 6-digit code sent to your email
+    <form class="input-group" [formGroup]="verifyForm" formControlName="verifyForm">
+      <input type="text" placeholder="OTP" formControlName="otp">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" (ngSubmit)="veryOTPAsyn(verifyFormData.otp)" type="button">Verify</button>
+      </span>
+    </form>
+    </div>
+    <div class="form-text error" *ngIf="userLoginForm.controls.otp.touched">
+        <div *ngIf="userLoginForm.controls.otp.hasError('required')">OTP is required.</div>
+      <div *ngIf="userLoginForm.controls.otp.hasError('invalidOtp')">OTP is invalid.</div>
+    </div>
+    <!-- <div class="row">
+        <div class="form-group col-sm-2" *ngFor="let input of formInput;  index as i">
+            <input #formRow type="text" formControlName="{{input}}" class="form-control" maxlength="1" (keyup)="keyUpEvent($event, i)">
+          </div> -->
+    
+   
+</div>

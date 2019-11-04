@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {LoginService} from '../login.service'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,13 +10,14 @@ import {LoginService} from '../login.service'
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  SERVER_URL = "http://localhost:3000/authentication/sign_up/user";
+  SERVER_URL = "/authentication/sign_up/user";
   userRegistrationForm;
   
   
 
   constructor(
     private loginService: LoginService,
+    private router: Router,
     private formBuilder: FormBuilder) { 
       this.userRegistrationForm = this.formBuilder.group({
         name: '',
@@ -33,10 +35,7 @@ export class RegistrationComponent implements OnInit {
     console.log(userData);
     var r = this.loginService.sendRequest(userData, this.SERVER_URL);
     r.subscribe(data => {
-      // if(data['auth']){
-      //   // this.cookie.set("jwttoken", data['token']);
-      // }
-      
+      this.router.navigate(['/login']);
     })
 
   }

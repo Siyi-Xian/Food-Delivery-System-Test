@@ -17,10 +17,20 @@
 
 
 
-<app-sidebar></app-sidebar>
+<app-restaurantdropdown></app-restaurantdropdown>
 
 <div class="container" style="margin: 0px 0px 0px 200px; padding: 0">
 </div>
+
+  <div *ngIf="orders">
+    <ul>
+      <div *ngFor="let order of orders">
+        Price: {{order.price}}
+        Name Of Item: {{ order.name_of_item }}
+        Status: Fulfilled
+      </div>
+    </ul>
+  </div>
 
 </body>
 

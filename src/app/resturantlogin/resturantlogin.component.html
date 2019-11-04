@@ -29,7 +29,7 @@
       <h2>Restaurant Login</h2>
     </div>
     <div class="container" style="padding: 30px; font-size: 15px">
-      <form method="post" [formGroup]="restaurantLoginForm" (ngSubmit) = onSubmit(restaurantLoginForm.value)>
+      <form method="post" [formGroup]="restaurantLoginForm" (ngSubmit) = "onSubmit(restaurantLoginForm.value)">
         <div class="container" style="padding-bottom: 20px">
           <div>Your Email:</div>
           <div><input type = "text" required = "required" formControlName="email" placeholder="example@foodoholic.com" id="Email" style="width: 100%"></div>

@@ -10,63 +10,65 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="restaurantdetails.component.css"></script>
+  <script src="login.component.css"></script>
+  <script src="restaurantviewdetails.component.css"></script>
   <script src="../../styles.css"></script>
 </head>
 <body>
 
+<app-restaurantdropdown></app-restaurantdropdown>
 
-<app-sidebar>
-</app-sidebar>
 
-<div style="margin-left: 200px">
-  <div class="container" style="width: 400px; margin-top: 5%; margin-bottom: 5%">
-    <div class="jumbotron" style="padding: 0; background-color: #FFF8E1">
-      <div class="container" style="text-align: center; padding: 20px; border-bottom: #FFE082 2px solid">
-        <h2>Edit Details</h2>
+<div class="container">
+  <div class="container">
+    <h3>Edit Details</h3>
+    <p>Please put new restaurant information here! After edit, do not forget to click update at the button.</p>
+  </div>
+  <hr>
+  <form mehtod="post" [formGroup]="detailsForm" (ngSubmit)=onSubmit(detailsForm.value)>
+    <div class="row">
+      <div class=" col-md-6">
+        <img [src]="restaurant_details.res_image" alt="" style="width: 500px"/>
+        <input type="file" required="required" accept="image/*" (change)="onFileSelected($event)" id="res_image"
+               ng-model="res_image"
+               base-sixty-four-input>
       </div>
-      <div class="container" style="padding: 30px; font-size: 15px">
-        <form mehtod="post" [formGroup]="detailsForm" (ngSubmit)=onSubmit(detailsForm.value)>
-          <div class="fields">
-            <div>Restaurant Name:</div>
-            <div><input type="text" required="required" formControlName="name" placeholder="{{ detailsForm.name }}"
-                        id="name" style="width: 100%"></div>
-          </div>
-          <div class="fields">
-            <div>Restaurant Location:</div>
-            <div><input type="text" required="required" formControlName="location"
-                        placeholder="{{ detailsForm.location }}" id="location" style="width: 100%"></div>
-          </div>
-          <div class="fields">
-            <div>Category:</div>
-            <div><input type="text" required="required" formControlName="food_category"
-                        placeholder="{{ detailsForm.food_category }}" id="food_category" style="width: 100%"></div>
-          </div>
-          <div class="fields">
-            <div>Image:</div>
-            <div><input type="file" required="required" accept="image/*" (change)="onFileSelected($event)" id="res_image" ng-model="res_image"
-                        base-sixty-four-input></div>
-          </div>
-          <div class="fields">
-            <div>Contact Phone Number:</div>
-            <div><input type="text" required="required" formControlName="contact" placeholder="{{ detailsForm.contact }}"
-                        id="contact">
-            </div>
-          </div>
-          <div class="fields">
-            <div>Working Hours:</div>
-            <div><input type="text" required="required" formControlName="working_hours"
-                        placeholder="{{ detailsForm.working_hours }}"
-                        id="working_hours"></div>
-          </div>
-          <button type="submit" value="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 20px">Update</button>
-        </form>
+      <div class="form-style col-md-6">
+        <h4>
+          <input type="text" required="required" formControlName="name" value="{{ restaurant_details.name }}"
+                 id="name" style="width: 100%">
+        </h4>
+        <li>
+          <strong> Contact: </strong>
+          <input type="text" required="required" formControlName="contact" value="{{ restaurant_details.contact }}"
+                 id="contact">
+        </li>
+        <li>
+          <strong> Food Category: </strong>
+          <input type="text" required="required" formControlName="food_category"
+                 value="{{ restaurant_details.food_category }}" id="food_category">
+        </li>
+        <li>
+          <strong> Location: </strong>
+          <input type="text" required="required" formControlName="location"
+                 value="{{ restaurant_details.location }}" id="location">
+        </li>
+        <li>
+          <strong> Working Hours: </strong>
+          <input type="text" required="required" formControlName="working_hours"
+                 value="{{ restaurant_details.working_hours }}"
+                 id="working_hours">
+        </li>
+        <li><strong> Description: </strong> Some thing write here!</li>
       </div>
     </div>
-  </div>
+    <hr>
+    <div class="row">
+      <button href="#" routerLink="/restaurantviewdetails" type="submit" value="submit"
+              class="btn btn-primary btn-lg btn-block pull-right" style="width: 100px; margin-right: 20px">Update
+      </button>
+    </div>
+  </form>
 </div>
-
-
 </body>
-
 </html>

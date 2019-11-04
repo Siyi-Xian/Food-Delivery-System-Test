@@ -1,0 +1,16 @@
+.border-type {
+  border-style: solid;
+  border-color: black;
+}
+
+p {
+  font-size: 20px;
+}
+
+hr {
+  border-width: 3px;
+}
+
+.edit-link {
+  margin-right: 50px;
+}

@@ -11,10 +11,11 @@ const cookieParser = require('cookie-parser');
 let config = require('./config');
 let middleware = require('./jwtverification');
 var router = express.Router()
+var port = process.env.PORT || 8080
 
 
 
-mongoose.connect('mongodb://localhost:27017/foodoholics', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://heroku_wr9z45km:4qlbddem2aer4k5djhcrp5ph3s@ds243717.mlab.com:43717/heroku_wr9z45km', { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 
 function send_mail(from, receiver, subject, message){
@@ -221,7 +222,7 @@ router.post('/sign_up/:collection_name', function(req, res){
         if (err || data == null){
             
             console.log(Bcrypt.hashSync(req.body.password, 10))
-            db.collection(collection_name).insertOne(data_to_be_inserted, function (error, collection){
+            db.collection(collection_name).insertOne(data_to_be_inserted, function (error, result){
                 if (error){
                     console.log("error here")
                     throw error;
@@ -231,7 +232,7 @@ router.post('/sign_up/:collection_name', function(req, res){
             });
 
             var receiver = req.body.email
-            var email_text = "Click on the link to verify your account " + "localhost:3000/authentication/verify/" + req.body.email + '/' + token + '/'+req.params.collection_name;
+            var email_text = "Click on the link to verify your account " + "localhost:8080/authentication/verify/" + req.body.email + '/' + token + '/'+req.params.collection_name;
             send_mail('foodoholics4@gmail.com', receiver, "Food-o-Holic User Verification", email_text)
             res.json({message: "User Registered and a verification email has been sent"})
         }

@@ -14,10 +14,27 @@
   <script src="../../styles.css"></script>
 </head>
 <body>
-<app-sidebar>
+<app-restaurantdropdown></app-restaurantdropdown>
 
-</app-sidebar>
 
+<h3>Current Orders</h3>
+<p>below are orders that are currently being fulfilled</p>
+<p>Click on an order to reveal options</p>
+
+<!-- Place holder for list of orders -->
+<div #currentorders>
+    <div *ngIf="orders">
+        <ul>
+          <div *ngFor="let order of orders; index as i">
+            Price: {{order.price}}
+            Name Of Item: {{ order.name_of_item }}
+            Status: Fullfilled
+            <button (click)="fullfillOrder(order._id, i)">Completed</button>
+          </div>
+        </ul>
+      </div>
+
+</div>
 
 </body>
 

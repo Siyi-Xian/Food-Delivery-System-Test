@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../login.service'
 import {FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-restaurantreg',
@@ -8,11 +10,12 @@ import {FormBuilder} from '@angular/forms';
   styleUrls: ['./restaurantreg.component.css']
 })
 export class RestaurantregComponent implements OnInit {
-  SERVER_URL = "http://localhost:3000/authentication/sign_up/restaurant";
+  SERVER_URL = "/authentication/sign_up/restaurant";
   restaurantRegistrationForm;
   constructor(
     private loginService: LoginService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) { 
     this.restaurantRegistrationForm = this.formBuilder.group({
       name: '',
@@ -25,27 +28,22 @@ export class RestaurantregComponent implements OnInit {
   ngOnInit() {
   }
 
-  newRest(event){
-    event.preventDefault()
-    const password = event.target.password.value
-    const confirmpass = event.target.confirmpass.value
+  newRest(password, confirmpass){
+    //event.preventDefault()
+    
     if(password == confirmpass){
-      console.log("User info submitted")
       return true
     }
     else{
-      alert("Passwords do not match")
       return false
     }
   }
 
   onSubmit(userData){
-    console.log(userData);
-    var r = this.loginService.sendRequest(userData, this.SERVER_URL);
-    r.subscribe(data => {
-      
-      
-    })
+      var r = this.loginService.sendRequest(userData, this.SERVER_URL);
+      r.subscribe(data => {
+        this.router.navigate(['/resturantlogin']);
+      })
   }
 
 }

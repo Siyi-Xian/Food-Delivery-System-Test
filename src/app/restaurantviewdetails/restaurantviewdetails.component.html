@@ -1,26 +1,55 @@
 <html>
 
-    <head>
-        <title>
-          Restaurant Details
-        </title>
-        <!-- Bootstrap CDN scripts -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <script src="login.component.css"></script>
-        <script src="../../styles.css"></script>
-    </head>
-    <body>
+<head>
+  <title>
+    Restaurant Details
+  </title>
+  <!-- Bootstrap CDN scripts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="login.component.css"></script>
+  <script src="restaurantviewdetails.component.css"></script>
+  <script src="../../styles.css"></script>
+</head>
+<body>
 
-          <app-sidebar>
+<app-restaurantdropdown></app-restaurantdropdown>
 
-          </app-sidebar>
 
-          <p>Restaurant Details</p>
+<div class="container">
+  <div class="container">
+    <h3>Restaurant Details</h3>
+    <p>Below is how a customer will see your Restaurant page</p>
+  </div>
+  <hr>
+  <div class="row">
+    <div class=" col-md-6">
+      <img [src]="restaurant_details.res_image" alt="" style="width: 500px"/>
+    </div>
+    <div class=" col-md-6">
+      <ul *ngIf="restaurant_details">
+        <h4><strong> {{restaurant_details.name}} </strong></h4>
+        <li><strong> Contact: </strong> <a href="tel:{{restaurant_details.contact}}">{{restaurant_details.contact}}</a>
+        </li>
+        <li><strong> Food Category: </strong>{{restaurant_details.food_category}}</li>
+        <li><strong> Location: </strong> <a
+          href="http://maps.google.com/?q={{restaurant_details.location.replace(' ', '+')}}">{{restaurant_details.location}}</a>
+        </li>
+        <li><strong> Working Hours: </strong>{{restaurant_details.working_hours}}</li>
+        <li><strong> Description: </strong> Some thing write here!</li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <a class="edit-link pull-right" href="#" routerLink="/restaurantdetails">Edit</a>
+  </div>
+</div>
 
-    </body>
+
+</body>
 
 </html>

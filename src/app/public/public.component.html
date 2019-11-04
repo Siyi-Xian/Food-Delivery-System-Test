@@ -1,27 +1,70 @@
 <html>
 <head>
   <title>
-    Log In
+    public dashboard
   </title>
   <!-- Bootstrap CDN scripts -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="login.component.css"></script>
   <script src="../../styles.css"></script>
 </head>
 <body>
-<nav class="navbar navbar-light">
+<nav class="navbar navbar-light" style="padding-right: 30px">
   <!-- Navbar content -->
   <!-- Just an image -->
   <a class="navbar-brand" routerLink="/public" style="padding: 0;">
     <img src="../../assets/img/logo.png" height="50" alt="">
   </a>
-  <ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
-    <li><a routerLink="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
-    <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Log In </a></li>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown" style="width: 160px; text-align: center">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span class="glyphicon glyphicon-user"></span>
+        Sign up
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#" routerLink="/registration">Customers</a></li>
+        <li><a href="#" routerLink="/resturantreg">Restaurant</a></li>
+      </ul>
+    </li>
+    <li class="dropdown" style="width: 160px; text-align: center">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span class="glyphicon glyphicon-log-in"></span>
+        Login
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#" routerLink="/login">Customers</a></li>
+        <li><a href="#" routerLink="/resturantlogin">Restaurant</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
+
+<!--<nav class="navbar navbar-light">-->
+<!--  &lt;!&ndash; Navbar content &ndash;&gt;-->
+<!--  &lt;!&ndash; Just an image &ndash;&gt;-->
+<!--  <a class="navbar-brand" routerLink="/public" style="padding: 0;">-->
+<!--    <img src="../../assets/img/logo.png" height="50" alt="">-->
+<!--  </a>-->
+<!--  <div class="navbar-right">-->
+<!--    <div class="dropdown">-->
+<!--      <button href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false">Login/Sign up</button>-->
+<!--        <ul class="dropdown-menu">-->
+<!--          <li><a href="#" routerLink="/login">Login</a></li>-->
+<!--          <a href="#" routerLink="/registration">Registration</a>-->
+<!--          <div class="dropdown-divider"></div>-->
+<!--          <label>Restaurant Owner?</label>-->
+<!--          <li><a href="#" routerLink="/resturantlogin">Restaurant Login</a></li>-->
+<!--          <a href="#" routerLink="/restaurantreg">Register Restaurant</a>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--  </div>-->
+<!--</nav>-->
 </body>
 </html>
 

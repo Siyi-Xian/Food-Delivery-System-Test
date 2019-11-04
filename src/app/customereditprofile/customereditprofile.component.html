@@ -1,0 +1,68 @@
+<html>
+<head>
+  <title>
+    customer dashboard
+  </title>
+  <!-- Bootstrap CDN scripts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="login.component.css"></script>
+  <script src="../../styles.css"></script>
+</head>
+<body>
+<nav class="navbar navbar-light">
+  <!-- Navbar content -->
+  <!-- Just an image -->
+  <a class="navbar-brand" routerLink="/public" style="padding: 0;">
+    <img src="../../assets/img/logo.png" height="50" alt="">
+  </a>
+  <ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
+  <li><a routerLink="/shoppingcart" class="glyphicon glyphicon-shopping-cart"> Cart</a></li>
+  <div class="container">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Account <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><button class="btn" href="#" routerLink="/shoppingcart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart </button></li>
+          <li><button class="btn" href="#" routerLink="/customerprofile">Profile</button></li>
+          <li><button class="btn" href="#" routerLink="/public"><span class="glyphicon glyphicon-log-out"></span>Log out</button></li>
+        </ul>
+      </div>
+  </div>
+  </ul>
+</nav>
+
+    <h3>Edit Profile</h3>
+  <!-- forms for seperately updating each field -->
+    <form method="POST" [formGroup]="userProfileForm" (ngSubmit) = "onSubmit(userUpdateForm.value)">
+      <!-- placeholder for customer name -->
+      <div #name></div>
+      <div> Name </div>
+      <input type="text" formControlName="name" required="required" placeholder="John Doe" id="Name"><a class="btn" (click)="onUpdateName($event)">Update</a>
+      <!-- we should move the button to the side of the field -->
+      <br>
+      <div #contact></div>
+      <div>Contact</div>
+      <input type="contact" formControlName="contact" required="required" placeholder="food@foodoholics.com" id="email"><a class="btn" (click)="onUpdateContact($event)">Update</a>
+      <br>
+      <div #address></div>
+      <div>Address</div>
+      <input type="text" formControlName="address" required="required" placeholder="123 10th Street" id="address"><a class="btn" (click)="onUpdateAddress($event)">Update</a>
+      <div #altaddress></div>
+      <div>Second Address</div>
+      <input type="text" formControlName="altAddress" placeholder="123 Alt Drive" id="altaddress"><a class="btn" (click)="onUpdateAltAddress($event)">Update</a>
+      <div #city></div>
+      <div>City</div>
+      <input type="text" formControlName="city" required="required" placeholder="Bloomington" id="city"><a class="btn" (click)="onUpdateCity($event)">Update</a>
+      <div #state></div>
+      <div>State</div>
+      <input type="text" formControlName="state" required="required" placeholder="IN" id="state"><a class="btn" (click)="onUpdateState($event)">Update</a>
+      <div #zip></div>
+      <div>Zip Code</div>
+      <input type="text" formControlName="zip" required="required" placeholder="47408" id="zip"><a class="btn" (click)="onUpdateZip($event)">Update</a>
+    </form>
+
+</body>
+</html>

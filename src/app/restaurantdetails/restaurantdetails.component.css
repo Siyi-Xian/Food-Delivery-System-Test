@@ -1,3 +1,20 @@
-.fields {
-  margin-bottom: 10px;
+.border-type {
+  border-style: solid;
+  border-color: black;
+}
+
+p {
+  font-size: 18px;
+}
+
+hr {
+  border-width: 3px;
+}
+
+.edit-link {
+  margin-right: 50px;
+}
+
+.form-style input{
+  margin-top: 5px;
 }

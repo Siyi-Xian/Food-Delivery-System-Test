@@ -5,8 +5,12 @@ let checkToken = (req, res, next) => {
   // let token = req.headers
   // console.log(req.body.jwttoken)
   let token = req.body.jwttoken; // Express headers are auto converted to lowercase
-  
-
+  // console.log(req.body)
+  // console.log(req)
+  if (token == null){
+    token = req.headers.jwttoken
+    // console.log(req.headers)
+  }
   if (token) {
     if (token.startsWith('Bearer ')) {
       // Remove Bearer from string
@@ -24,7 +28,9 @@ let checkToken = (req, res, next) => {
         next();
       }
     });
-  } else {
+  }
+  
+  else {
     return res.json({
       success: false,
       message: 'Auth token is not supplied'

@@ -29,7 +29,7 @@
       <h2>Register Now!</h2>
     </div>
     <div class="container" style="padding: 30px; font-size: 15px">
-      <form method="post" [formGroup]="restaurantRegistrationForm" (ngSubmit) = onSubmit(restaurantRegistrationForm.value)>
+      <form method="post" [formGroup]="restaurantRegistrationForm" (ngSubmit) = "onSubmit(restaurantRegistrationForm.value)">
         <div class="container" style="padding-bottom: 20px">
           <div>Full Name::</div>
           <div><input type = "text" required="required" formControlName="name" placeholder="John Doe" id="FullName" style="width: 100%"></div>

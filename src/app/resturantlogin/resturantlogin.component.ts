@@ -3,6 +3,7 @@ import {LoginService} from '../login.service';
 import {FormBuilder} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 
+
 @Component({
   selector: 'app-resturantlogin',
   templateUrl: './resturantlogin.component.html',
@@ -28,7 +29,7 @@ export class ResturantloginComponent implements OnInit {
   }
 
   onSubmit(userData){
-    var r = this.loginService.sendRequest(userData, "http://localhost:3000/authentication/login/restaurant");
+    var r = this.loginService.sendRequest(userData, "/authentication/login/restaurant");
     r.subscribe(data => {
       console.log(data)
       if(data['auth']){
